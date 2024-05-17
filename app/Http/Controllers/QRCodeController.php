@@ -12,12 +12,19 @@ class QRCodeController extends Controller
     {
       // Retrieve the user details
 $user = User::findOrFail($user_id);
+// Get the path to the user's profile image
+// Get the URL to the user's profile image
+$imageUrl = url($user->profile_image); // Adjust the path as necessary
+
 
 // Create a vCard string to encode in the QR code
 $vCard = "BEGIN:VCARD\n";
 $vCard .= "VERSION:3.0\n";
 $vCard .= "FN:" . $user->name . "\n"; // Full name
 $vCard .= "TEL:" . $user->phone . "\n"; // Phone number (make sure the user has a phone attribute)
+$vCard .= "PHOTO;VALUE=URL:" . $imageUrl . "\n"; // URL to the profile image
+    
+   
 $vCard .= "EMAIL:" . $user->email . "\n"; // Email
 
 // You can add other fields as needed
@@ -40,7 +47,7 @@ QrCode::create([
     'qr_code_data' => $qrCodeData,
 ]);
 // Pass $qrCodeData and $name to the view
-return view('welcome', compact('qrCodeData', 'name', 'phone'));
+return view('welcome', compact('qrCodeData', 'name', 'phone','imageUrl'));
 
 }
 }
