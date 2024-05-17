@@ -9,10 +9,10 @@
 <body>
     <div class="qr-code-container">
         <div class="user-image">
-            <img src="/top_image.jpg" alt="Image">
+            <img src="/top_image.jpg" alt="Image" class="circular-image"> <!-- Adjust the path -->
         </div>
-       
-        <h1>{{ $name }}</h1>
+        <h1>{{ $name }} -- {{ $phone }}</h1>
+        
         <div class="qr-code">
             {!! $qrCodeData !!}
         </div>
