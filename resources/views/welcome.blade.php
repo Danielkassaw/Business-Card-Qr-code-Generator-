@@ -11,9 +11,9 @@
         </div>
         <div class="user-details">
             <h1 class="name">{{ $name }}</h1>
-            <p>{{ $title }}</p>
-            <p>{{ $company }}</p>
-            <p>{{ $phone }}</p>
+            <p>{{ $title }} | {{ $company }}</p>
+            {{-- <p>{{ $company }}</p> --}}
+            <p>{{ $email }} | {{$phone}}</p>
         </div>
         <div class="qr-code">
             {!! $qrCodeData !!}

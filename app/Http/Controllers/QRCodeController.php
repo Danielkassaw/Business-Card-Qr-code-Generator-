@@ -42,6 +42,7 @@ class QRCodeController extends Controller
         'qrCodeData' => $qrCodeData,
         'name' => $user->name,
         'phone' => $user->phone,
+        'email' => $user->email, // Include email here
         'imageUrl' => $imageUrl,
         'company' => $user->company,
         'title' => $user->title,
